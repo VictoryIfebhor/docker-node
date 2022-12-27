@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon -L index.js"
+    "dev": "nodemon -L index.js",
+    "restart-container": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d",
+    "rebuild-container": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build",
+    "stop-container": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml down"
   },
   "keywords": [],
   "author": "",
