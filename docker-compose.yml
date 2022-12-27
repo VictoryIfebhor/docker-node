@@ -5,3 +5,13 @@ services:
       - 3000:3000
     env_file:
       - ./.env
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=username
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
