@@ -7,7 +7,7 @@
     "start": "node src/index.js",
     "dev": "nodemon -L src/index.js",
     "start-container": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d",
-    "rebuild-container": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build",
+    "build-container": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build",
     "stop-container": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml down"
   },
   "keywords": [],
