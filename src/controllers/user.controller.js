@@ -9,7 +9,12 @@ exports.createUser = async (req, res) => {
 
 exports.loginUser = async (req, res) => {
   const { username, password } = req.body;
-  const user = await User.find({ username });
+  if (!username || !password) {
+    return res
+      .status(400)
+      .json({ message: "Please provide both username and password." });
+  }
+  const user = await User.findOne({ username });
   if (!user) {
     return res.status(400).json({ message: "Invalid credentials" });
   }
