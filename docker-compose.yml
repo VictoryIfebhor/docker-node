@@ -9,9 +9,8 @@ services:
       - mongo
   mongo:
     image: mongo
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=username
-      - MONGO_INITDB_ROOT_PASSWORD=password
+    env_file:
+      - ./.env
     volumes:
       - mongo-db:/data/db
   redis:
