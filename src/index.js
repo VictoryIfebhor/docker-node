@@ -1,6 +1,7 @@
 require("express-async-errors");
 const express = require("express");
 const morgan = require("morgan");
+const session = require("express-session");
 const { connectDB } = require("./db");
 const config = require("./config");
 const userRouter = require("./routes/user.route");
@@ -9,11 +10,21 @@ const {
   errorMiddleware,
   routeNotFound,
 } = require("./middlewares/error-handler");
+const { redisStore } = require("./service/redis");
 
 const app = express();
 
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(
+  session({
+    store: redisStore,
+    secret: config.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { httpOnly: true, maxAge: 30000, secure: false },
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello, world!</h1>");
