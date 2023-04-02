@@ -5,3 +5,6 @@ services:
       context: .
       args:
         - NODE_ENV=production
+  nginx:
+    ports:
+      - "80:80"
