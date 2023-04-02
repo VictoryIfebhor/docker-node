@@ -15,6 +15,8 @@ const { authMiddleware } = require("./middlewares/auth.middleware");
 
 const app = express();
 
+app.enable("trust proxy"); // must enable for express apps running behing a proxy
+
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(
