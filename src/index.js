@@ -11,6 +11,7 @@ const {
   routeNotFound,
 } = require("./middlewares/error-handler");
 const { redisStore } = require("./service/redis");
+const { authMiddleware } = require("./middlewares/auth.middleware");
 
 const app = express();
 
@@ -30,7 +31,7 @@ app.get("/", (req, res) => {
   res.send("<h1>Hello, world!</h1>");
 });
 app.use("/users", userRouter);
-app.use("/posts", postRouter);
+app.use("/posts", authMiddleware, postRouter);
 
 app.use(routeNotFound);
 app.use(errorMiddleware);
