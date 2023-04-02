@@ -5,5 +5,6 @@ ARG NODE_ENV
 RUN if [ "$NODE_ENV" = "development" ]; then npm install; else npm install --omit=dev; fi
 COPY . .
 ENV PORT 3000
+ENV NODE_ENV $NODE_ENV
 EXPOSE $PORT
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
