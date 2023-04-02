@@ -22,7 +22,7 @@ app.use(
     secret: config.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { httpOnly: true, maxAge: 30000, secure: false },
+    cookie: { httpOnly: true, maxAge: 60000, secure: false },
   })
 );
 
