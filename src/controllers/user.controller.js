@@ -22,5 +22,7 @@ exports.loginUser = async (req, res) => {
   if (!isCorrect) {
     return res.status(400).json({ message: "Invalid credentials" });
   }
+
+  req.session.user = user;
   return res.status(200).json({ user });
 };
