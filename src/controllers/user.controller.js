@@ -4,6 +4,7 @@ exports.createUser = async (req, res) => {
   const { username, password } = req.body;
   const user = await User.create({ username, password });
 
+  req.session.user = user;
   return res.status(201).json({ user });
 };
 
