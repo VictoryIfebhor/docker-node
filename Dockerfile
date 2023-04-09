@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18.15.0-alpine
 WORKDIR /app
 COPY ./package.json .
 ARG NODE_ENV

@@ -13,7 +13,7 @@ services:
     volumes:
       - mongo-db:/data/db
   redis:
-    image: redis
+    image: redis:7.2-rc1-alpine
   nginx:
     image: nginx:stable-alpine
     volumes:
