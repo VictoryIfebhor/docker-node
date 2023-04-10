@@ -9,6 +9,15 @@ services:
       - ./:/app
       - /app/node_modules
     command: npm run dev
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    env_file:
+      - ./.env
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
   nginx:
     ports:
       - "3000:80"
