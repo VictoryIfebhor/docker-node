@@ -10,7 +10,6 @@ services:
       - /app/node_modules
     command: npm run dev
   mongo-express:
-    container_name: mongo-express
     image: mongo-express
     env_file:
       - ./.env

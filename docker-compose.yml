@@ -1,24 +1,20 @@
 version: '3'
 services:
   node-app:
-    container_name: node-app
     env_file:
       - ./.env
     depends_on:
       - mongo
       - redis
   mongo:
-    container_name: mongo
     image: mongo
     env_file:
       - ./.env
     volumes:
       - mongo-db:/data/db
   redis:
-    container_name: redis
     image: redis:7.2-rc1-alpine
   nginx:
-    container_name: nginx
     image: nginx:stable-alpine
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
