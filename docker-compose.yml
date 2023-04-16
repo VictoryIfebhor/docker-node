@@ -1,6 +1,7 @@
 version: '3'
 services:
   node-app:
+    image: victoryifebhor/node-docker
     env_file:
       - ./.env
     depends_on:
