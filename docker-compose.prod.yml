@@ -1,19 +1,19 @@
 version: '3'
 services:
-  deploy:
-    mode: replicated
-    replicas: 8
-    restart_policy:
-      condition: any
-    update_config:
-      parallelism: 2
-      delay: 15s
-      failure_action: rollback
   node-app:
     build:
       context: .
       args:
         - NODE_ENV=production
+    deploy:
+      mode: replicated
+      replicas: 8
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 2
+        delay: 15s
+        failure_action: rollback
   nginx:
     ports:
       - "80:80"
