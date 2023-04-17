@@ -16,3 +16,4 @@ services:
       - WATCHTOWER_PULL_INTERVAL=50
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    entrypoint: ["node-app"]
