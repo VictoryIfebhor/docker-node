@@ -8,3 +8,11 @@ services:
   nginx:
     ports:
       - "80:80"
+  watch-tower:
+    image: containrrr/watchtower
+    environment:
+      - WATCHTOWER_TRACE=true
+      - WATCHTOWER_DEBUT=true
+      - WATCHTOWER_PULL_INTERVAL=50
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
