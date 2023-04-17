@@ -1,6 +1,7 @@
 version: '3'
 services:
   deploy:
+    mode: replicated
     replicas: 8
     restart_policy:
       condition: any
