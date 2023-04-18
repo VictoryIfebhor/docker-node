@@ -7,7 +7,7 @@ services:
         - NODE_ENV=production
     deploy:
       mode: replicated
-      replicas: 8
+      replicas: 4
       restart_policy:
         condition: any
       update_config:
