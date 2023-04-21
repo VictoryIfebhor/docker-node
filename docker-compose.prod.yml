@@ -13,7 +13,6 @@ services:
       update_config:
         parallelism: 2
         delay: 15s
-        failure_action: rollback
   nginx:
     ports:
       - "80:80"
