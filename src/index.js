@@ -30,7 +30,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send("<h1>Hello, world!</h1>");
+  res.json({ message: "App is running live!!!" });
 });
 app.use("/users", userRouter);
 app.use("/posts", authMiddleware, postRouter);
